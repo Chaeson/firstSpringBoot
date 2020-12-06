@@ -20,10 +20,14 @@
     </properties>
 
     <dependencies>
+        <!--[ADD] 2020.12.06 Spring Web Dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- Spring Web Dependency -->
+
+        <!-- [ADD] 2020.12.06 Spring Kafka Dependency -->
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
@@ -32,7 +36,7 @@
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
-
+        <!-- Spring Kafka Dependency -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

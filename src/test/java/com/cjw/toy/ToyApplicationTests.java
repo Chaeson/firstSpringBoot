@@ -1,10 +1,10 @@
-package com.cjw.kafka;
+package com.cjw.toy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KafkaApplicationTests {
+class ToyApplicationTests {
 
     @Test
     void contextLoads() {
