@@ -78,6 +78,34 @@
             <version>2.4.0</version>
         </dependency>
         <!-- JPA Dependency -->
+        <!-- [ADD] 2020.12.09 Auto-Configure Dependency -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- Auto-Configure Dependency -->
+        <!-- [ADD] 2020.12.09 API Annotaion Dependency -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+        </dependency>
+        <!-- [ADD] 2020.12.09 Spring Core Dependency -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+        <!-- Spring Core Dependency -->
+        <!-- [ADD] 2020.12.09 yaml Dependency -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+        <!-- yaml Dependency -->
+        <dependency>
+            <groupId>org.apache</groupId>
+            <artifactId>apache</artifactId>
+            <version>23</version>
+        </dependency>
     </dependencies>
 
     <build>
