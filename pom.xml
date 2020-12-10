@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cjw</groupId>
-    <artifactId>kafka</artifactId>
+    <artifactId>toy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>kafka</name>
+    <name>toy</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -102,9 +102,15 @@
         </dependency>
         <!-- yaml Dependency -->
         <dependency>
-            <groupId>org.apache</groupId>
-            <artifactId>apache</artifactId>
-            <version>23</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- [ADD] Spring boot Configuration Annotation Processor not found in classpath라는 문구가 출력되어 추가. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
     </dependencies>
 
