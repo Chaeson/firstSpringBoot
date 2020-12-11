@@ -6,13 +6,19 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   main:
     allow-bean-definition-overriding: true
+# h2 Console을 사용하기 위해 com.cjw.toy.config.DataSourceConfig를 설정하는 것 대신
+# 기본으로 제공하는 @AutoConfiguration을 파악하고 사용하면 더 효율적이다.
+  h2:
+    console:
+      enabled: true
+datasource:
+  url: jdbc:h2:mem:testdb
 # Value Anotation 테스트
 property:
   test:
     name: Value versus ConfigurationProperties
 propertyTest: Test
 propertyTestList: Test1,Test2,Test3
-
 # ConfigurationProperties 테스트
 fruit:
   list:

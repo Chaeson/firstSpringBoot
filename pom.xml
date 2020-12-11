@@ -109,6 +109,10 @@
         </dependency>
         <!-- [ADD] Spring boot Configuration Annotation Processor not found in classpath라는 문구가 출력되어 추가. -->
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>

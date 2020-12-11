@@ -1,6 +1,6 @@
 package com.cjw.toy;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,37 +11,23 @@ import java.util.List;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * 에러 발생 원인: SpringBootTest는 value와 properties를 같이 사용하면 에러가 발생한다.
+ *             두개가 Aliasfor로 같이 잡혀 있다... 둘중에 하나만 사용할 것!
+ */
 @RunWith(SpringRunner.class)
-@SpringBootTest
-class ToyApplicationTests {
+@SpringBootTest(value = "value=test", properties = {"property.value=propertyTest"}, classes = {ToyApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ToyApplicationTests {
 
-    @Value("${property.test.name}")
-    private String propertyTestName;
+    @Value("${value}")
+    private String value;
 
-    @Value("${propertyTest}")
-    private String propertyTest;
-
-    @Value("${noKey:default value}")
-    private String defaultValue;
-
-    @Value("${propertyTestList}")
-    private String[] propertyTestArray;
-
-    @Value("#{'${propertyTestList}'.split(',')}")
-    private List<String> propertyTestList;
+    @Value("${property.value}")
+    private String propertyValue;
 
     @Test
-    public void test() {
-        assertThat(propertyTestName, is("Value versus ConfigurationProperties"));
-        assertThat(propertyTest, is("Test"));
-        assertThat(defaultValue, is("default value"));
-        assertThat(propertyTestArray[0], is("Test1"));
-        assertThat(propertyTestArray[1], is("Test2"));
-        assertThat(propertyTestArray[2], is("Test3"));
-
-        assertThat(propertyTestList.get(0), is("Test1"));
-        assertThat(propertyTestList.get(1), is("Test2"));
-        assertThat(propertyTestList.get(2), is("Test3"));
+    public void contextLoad(){
+        assertThat(value, is("test"));
+        assertThat(propertyValue, is("propertyTest"));
     }
-
 }
