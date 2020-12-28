@@ -14,11 +14,11 @@ spring:
 datasource:
   url: jdbc:h2:mem:testdb
 # Value Anotation 테스트
-property:
-  test:
-    name: Value versus ConfigurationProperties
-propertyTest: Test
-propertyTestList: Test1,Test2,Test3
+#property:
+#  test:
+#    name: Value versus ConfigurationProperties
+#propertyTest: Test
+#propertyTestList: Test1,Test2,Test3
 # ConfigurationProperties 테스트
 fruit:
   list:

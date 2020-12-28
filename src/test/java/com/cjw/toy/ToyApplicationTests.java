@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
  *             두개가 Aliasfor로 같이 잡혀 있다... 둘중에 하나만 사용할 것!
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(value = "value=test", properties = {"property.value=propertyTest"}, classes = {ToyApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@SpringBootTest(value = "value=test", properties = {"property.value=propertyTest"}, classes = {ToyApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ToyApplicationTests {
 
     @Value("${value}")
