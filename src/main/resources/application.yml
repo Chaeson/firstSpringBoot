@@ -1,4 +1,4 @@
-spring:
+#spring:
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/CJW?serverTimeZone=Asia/Seoul
 #    username: cjw
@@ -11,8 +11,8 @@ spring:
 #  h2:
 #    console:
 #      enabled: true
-datasource:
-  url: jdbc:h2:mem:db
+#datasource:
+#  url: jdbc:h2:mem:db
 # Value Anotation 테스트
 #property:
 #  test:

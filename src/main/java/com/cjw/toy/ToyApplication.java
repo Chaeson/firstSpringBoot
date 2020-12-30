@@ -24,7 +24,7 @@ public class ToyApplication {
 
     @Bean
     public CommandLineRunner runner(UserRepository userRepository, BoardRepository boardRepository) throws Exception{
-        return args -> {
+        return (args) -> {
             User user = userRepository.save(User.builder()
                                                 .name("chae")
                                                 .password("1234")
@@ -43,5 +43,4 @@ public class ToyApplication {
                             .user(user).build()));
         };
     }
-
 }

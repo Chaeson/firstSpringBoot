@@ -18,7 +18,7 @@ public class Board implements Serializable {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.TABLE)    //기본키 자동 할당 어노테이션
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    //기본키 자동 할당 어노테이션
     private Long idx;
 
     @Column
