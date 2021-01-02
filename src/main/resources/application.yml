@@ -1,31 +1,17 @@
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/CJW?serverTimeZone=Asia/Seoul
-#    username: cjw
-#    password: 4879
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#  main:
-#    allow-bean-definition-overriding: true
-# h2 Console을 사용하기 위해 com.cjw.toy.config.DataSourceConfig를 설정하는 것 대신
-# 기본으로 제공하는 @AutoConfiguration을 파악하고 사용하면 더 효율적이다.
-#  h2:
-#    console:
-#      enabled: true
-#datasource:
-#  url: jdbc:h2:mem:db
-# Value Anotation 테스트
-#property:
-#  test:
-#    name: Value versus ConfigurationProperties
-#propertyTest: Test
-#propertyTestList: Test1,Test2,Test3
-# ConfigurationProperties 테스트
-#fruit:
-#  list:
-#    - name: banana
-#      color: yellow
-#    - name: apple
-#      color: red
-#    - name: water melon
-#      color: green
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 760654424172-3e4fibsgv2gdk1ocekb73c0g1q5vod88.apps.googleusercontent.com
+            client-secret: oyB7ux5jJUgStVekKKGqegTy
+          facebook:
+            client-id: 219207806478101
+            client-secret: c04fcf8795b904ceeaf119432596b7df
 
+custom:
+  oauth2:
+    kakao:
+      client-id: 075158d59c2a3d6afcb142a6ea26feee
+      client-secret: tsvOjEPq9hQpwFppQFyAtM1dRxGX3uLG
