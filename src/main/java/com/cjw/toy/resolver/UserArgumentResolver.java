@@ -49,14 +49,18 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     private User getUser(User user, HttpSession session) {
         if(user == null){
-            OAuth2AuthenticationToken authentication =
-                    (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-            Map<String, Object> map = authentication.getPrincipal().getAttributes();
-            User convertUser = convertUser(authentication.getAuthorizedClientRegistrationId(), map);
-            user = userRepository.findByEmail(convertUser.getEmail());
-            if(user==null){user = userRepository.save(convertUser);}
-            setRoleIfNotSame(user, authentication, map);
-            session.setAttribute("user",user);
+            try{
+                OAuth2AuthenticationToken authentication =
+                        (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+                Map<String, Object> map = authentication.getPrincipal().getAttributes();
+                User convertUser = convertUser(authentication.getAuthorizedClientRegistrationId(), map);
+                user = userRepository.findByEmail(convertUser.getEmail());
+                if(user==null){user = userRepository.save(convertUser);}
+                setRoleIfNotSame(user, authentication, map);
+                session.setAttribute("user",user);
+            }catch (ClassCastException e){
+                return user;
+            }
         }
 
         return user;
@@ -73,6 +77,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     private User convertUser(String authority, Map<String, Object> map){
+        System.out.println(authority);
         if(FACEBOOK.getValue().equals(authority)) return getModernUser(FACEBOOK,map);
         else if(GOOGLE.getValue().equals(authority)) return getModernUser(GOOGLE,map);
         else if(KAKAO.getValue().equals(authority)) return getKakaoUser(map);
@@ -80,7 +85,8 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     private User getKakaoUser(Map<String, Object> map) {
-        HashMap<String, String> propertyMap = (HashMap<String, String>) map.get("properties");
+        HashMap<String, String> propertyMap = (HashMap<String, String>)(Object) map.get("properties");
+        System.out.println(propertyMap.get("nickname"));
         return User.builder().name(propertyMap.get("nickname"))
                 .email(String.valueOf(map.get("kaccount_email")))
                 .principal(String.valueOf(map.get("id")))
@@ -90,6 +96,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     }
 
     private User getModernUser(SocialType socialType, Map<String, Object> map) {
+        System.out.println(map.toString());
         return User.builder()
                 .name(String.valueOf(map.get("name")))
                 .email(String.valueOf(map.get("email")))

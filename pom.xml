@@ -84,7 +84,6 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

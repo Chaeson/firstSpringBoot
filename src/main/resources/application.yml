@@ -9,9 +9,23 @@ spring:
           facebook:
             client-id: 219207806478101
             client-secret: c04fcf8795b904ceeaf119432596b7df
-
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/CJW
+    username: cjw
+    password: 4879
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+  h2:
+    console:
+      enabled: false
+      path: /console
+  devtools:
+    livereload:
+      enabled: true
 custom:
   oauth2:
     kakao:
-      client-id: 075158d59c2a3d6afcb142a6ea26feee
+      client-id: 9222e4ffed777efac4afc4b626307f01
       client-secret: tsvOjEPq9hQpwFppQFyAtM1dRxGX3uLG

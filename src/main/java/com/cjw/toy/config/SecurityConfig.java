@@ -79,6 +79,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
+        System.out.println(kakaoClientId);
+        System.out.println(kakaoClientSecret);
         registrations.add(CustomOAuth2Provider.KAKAO.getBuilder("kakao")
                                                         .clientId(kakaoClientId)
                                                         .clientSecret(kakaoClientSecret)
